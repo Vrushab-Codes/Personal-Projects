@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: #e3f9ff;
+}
+.calci{
+    height: 550px;
+    width: 340px;
+    background-color: #3a4452;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    /* color: white; */
+}
+
+.calci button{
+    border: 0;
+    outline: 0;
+    color: #fff;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.calci .display button{
+    text-align: right;
+    flex: 1;
+    box-shadow: none;
+    font-size: 45px;
+}
+.calci .display{
+    display: flex;
+    margin: 20px 0;
+}
+.calci .display #dis{
+    height: 60px;
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    direction: rtl;
+    
+}
+button.equal{
+    width: 145px;
+}
+.container .calci .operator{
+    color: aqua;
+}
+#dis::placeholder{
+    color: wheat;
+}
