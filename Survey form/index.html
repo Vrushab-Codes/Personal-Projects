@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'poppins',sans-serif;
+}
+    a{
+        position: relative;
+        padding: 5px 20px;
+        display:inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color:#fff;
+        background:#111;
+        
+    }
+    .container#blur.active{
+        filter:blur(20px);
+        pointer-events: none;
+        user-select:none;
+    }
+    #popup{
+        position: fixed;
+        top:40%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width:600px;
+        padding:50px;
+        box-shadow: 0 5px 30px rgba(0,0,0,.30);
+        background: #fff;
+        visibility: hidden;
+        opacity: 0; 
+        transition: 0.5s; 
+    }
+    #popup.active{
+        top:40%;
+        visibility: visible;
+        opacity: 1;
+        transition: 0.5s;
+    }
+    #popup .end{
+        margin:5px;
+        right: -405px;
+    bottom: -13px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="container" id="blur">
+        <div class="content">
+            <h2>Hello there!!!, Please click below link to input your information.</h2>
+            <img src="">
+            <a href="#" onclick="toggle()">Submit survey</a>
+        </div>
+    </div>
+    <div id="popup">
+        <h2>Hi, which information do you have for us today?</h2>
+        <p>If you have information of perticular designation then please select profession, or select course if you have information about the course.</p>
+        <a href="Profession.html">Profession</a>
+        <a href="Course.html">Course</a>
+        <div><a class="end" href="#" onclick="toggle()">Close</a></div>
+        
+    </div> 
+    <script type="text/javascript">
+        function toggle(){
+            var blur=document.getElementById('blur');
+            blur.classList.toggle('active');
+            var popup=document.getElementById('popup');
+            popup.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

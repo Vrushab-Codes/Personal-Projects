@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #3a6785, #391e42);
+}
+    </style>
+</head>
+
+    <div class="container">
+    <body>
+    <form action="#">
+        <div class="title">Survey</div>
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Course name</span>
+                <input type="text" placeholder="Enter profession name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Required education</span>
+                <input type="text" placeholder="Enter skills" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Required skills</span>
+                <input type="text" placeholder="Enter education" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Full name</span>
+                <input type="text" placeholder="enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Full name</span>
+                <input type="text" placeholder="enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Full name</span>
+                <input type="text" placeholder="enter your name" required>
+            </div>
+            <div class="uploadfile">
+                <label for="file">File</label>
+                <input id="file" type="file" />
+                <!-- <button>Upload</button> -->
+            </div>
+            <div class="input-box">
+                <span class="link">Paste related link</span>
+                <input type="text" placeholder="Paste link here" required>
+            </div>
+            
+        </div>
+        <div class="more-info"> 
+            <input type="text" placeholder="Feel free to provide more info here." required>
+        </div>
+        <div class="submitbtn">
+            <button>Submit</button>
+        </div>
+    </div>
+    </form>
+
+</body>
+</html>
