@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissor</title>
+</head>
+<body>
+    <p>Rock paper scissors</p>
+    <button onclick="
+        playGame('rock');
+    ">Rock</button>
+    <button onclick="
+        playGame('paper');
+    ">Paper</button>
+    <button onclick="
+        playGame('scissors');
+        
+    ">Scissors</button>
+    <button onclick="
+        reset();
+    ">Score reset</button>
+    <p class="popresult"></p>
+
+    <p class="moves"></p>
+
+    <p class="printScore"></p>
+
+    <input class="valueH" placeholder="Enter amount" onkeydown="
+        handleKeyDown(event);
+    ">
+    <button class="calculateH" onclick="
+        calculate();
+    ">Calculate</button>
+    <p class="totalCost"></p>
+   
+
+
+    <script>
+    function handleKeyDown(event){
+        // console.log(event.key);
+        if(event.key === 'Enter'){
+            calculate();
+        }
+    }
+
+        function calculate(){
+            const inputEle = document.querySelector('.valueH');
+            let cost = Number(inputEle.value);
+
+            if(cost < 40){
+                cost+=10;
+            }else{
+                cost;
+            }
+            document.querySelector('.totalCost').innerHTML = `$${cost}`; 
+        }
+
+        const score={
+            wins : 0,
+            lose : 0,
+            ties : 0
+        };
+
+        function reset(){
+            // score.wins =0;
+            // score.lose =0;
+            // score.ties =0;
+            // alert('score is reset');
+            document.querySelector('.popresult').innerHTML = 'Score has been reset.';
+            document.querySelector('.moves').innerHTML = 'Please pick a move.';
+            document.querySelector('.printScore').innerHTML = 'wins : 0, lose : 0, ties : 0';
+        }
+
+        updateScore();
+
+        function playGame(playerMove){
+            const computerMove = pickComputerMove();
+            let result = '';
+        if(playerMove === 'scissors'){
+            if(computerMove === 'rock')
+            {
+                result = 'You lose.'
+            }else if(computerMove === 'paper')
+            {
+                result = 'You win.'
+            }
+            else if(computerMove === 'scissors')
+            {
+                result = 'Tie.'
+            }
+
+        }else if(playerMove === 'rock'){
+            if(computerMove === 'rock')
+            {
+                result = 'You lose.'
+            }else if(computerMove === 'paper')
+            {
+                result = 'You win.'
+            }
+            else if(computerMove === 'scissors')
+            {
+                result = 'Tie.'
+            }
+
+        }else if(playerMove === 'paper'){
+            if(computerMove === 'rock')
+            {
+                result = 'Tie.'
+            }else if(computerMove === 'paper')
+            {
+                result = 'You lose.'
+            }
+            else if(computerMove === 'scissors')
+            {
+                result = 'You win.'
+            }
+        }
+
+        if(result === 'You win.'){
+            score.wins += 1;
+        }else if(result === 'You lose.'){
+            score.lose += 1;
+        }else if(result === 'Tie.'){
+            score.ties += 1;
+        }
+
+        
+        document.querySelector('.popresult').innerHTML = result;
+        document.querySelector('.moves').innerHTML = `You Picked ${playerMove}, Computer picked ${computerMove}`;
+        updateScore();
+
+        
+
+//         alert(`You Picked ${playerMove}, Computer picked ${computerMove} ${result}
+// wins: ${score.wins}, lose: ${score.lose}, ties:${score.ties}`
+//         );
+        }
+        function pickComputerMove(){
+            const randomNumber = Math.random();
+            // console.log(randomNumber);
+            let computerMove = '';
+            if(randomNumber >= 0 && randomNumber <1/3)
+            {
+                computerMove = 'rock';
+            }else if(randomNumber >= 1/3 && randomNumber < 2/3) 
+            {
+                computerMove = 'paper';
+            }else if(randomNumber >= 2/3 && randomNumber < 1)
+            {
+                computerMove = 'scissors';
+            }
+            return computerMove;
+        }
+        function updateScore(){
+            document.querySelector('.printScore').innerHTML = `wins : ${score.wins}, lose : ${score.lose}, ties : ${score.ties}`;
+        }
+
+
+        
+        
+
+
+
+        function greet(name){
+            if(!name){
+                console.log('Hi there');
+            }else{
+            console.log(`Hello ${name}`);
+            }
+        }
+        greet();
+
+        function convertToFarenheit(celsius){
+            return (celsius*9/5) +32;
+        }
+        console.log(convertToFarenheit(25));
+
+        function convertToCelsius(Farenheit){
+            return (Farenheit-32)*5/9;
+        }
+        console.log(convertToCelsius(86));
+
+        function convertTemparature(degrees, unit){
+            if(unit === 'C'){
+                const result = convertToFarenheit(degrees);
+                return `${result}C`; 
+            }else if(unit === 'F'){
+                const result= convertToCelsius(degrees);
+                return `${result}F`;
+            }
+        }
+        console.log(convertTemparature(25, 'C'));
+        console.log(convertTemparature(86, 'F'))
+        
+
+    </script>
+</body>
+</html>
